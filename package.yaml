@@ -30,3 +30,5 @@ library:
   source-dirs:
   - src
   - src/lectures
+  - src/report
+  - src/exam
