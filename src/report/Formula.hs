@@ -2,9 +2,13 @@
 -- Алексей Лицов, группа 381803-4м
 -- adlitsov@gmail.com
 
+{-# LANGUAGE TemplateHaskell #-}
+
 module Formula where
 
 import BooleanSyntax
+import Test.QuickCheck
+import Test.QuickCheck.All
 
 type Var = Int
 
@@ -127,7 +131,8 @@ showFormula opExt argPlace (C opInt formulas) =
                 showFormula opInt RightArg (last formulas)
 showFormula opExt argPlace (V v) = varName v
 
-
+prop_form1 = showFormula noOp LeftArg form1 "" == "x v y -> ~z"
+prop_form2 = showFormula noOp LeftArg form2 "" == "x y + ~z <-> x v z"
 instance Show Formula where
 --   show f = fullParen f ""
  show f = showFormula noOp LeftArg f ""
@@ -171,3 +176,7 @@ allEnvs n =
     in
         -- Для каждого окружения длины n-1 мы добавляем каждый компонент из Domain, лексикографический порядок сохранён
         foldl (\res current -> res ++ (map (\value -> current ++ [value]) domainValues)) [] prev
+
+return []
+runTests :: IO Bool
+runTests = $quickCheckAll
