@@ -25,6 +25,7 @@ dependencies:
 - random
 # Control.Monad.State
 - mtl
+- QuickCheck
 
 library:
   source-dirs:
