@@ -7,6 +7,8 @@
       <sourceFolder url="file://$MODULE_DIR$/src/lectures" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/report" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/exam" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/learnyouhaskell" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/holomyev" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/.stack-work" />
     </content>
     <orderEntry type="inheritedJdk" />

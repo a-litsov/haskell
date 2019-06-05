@@ -33,3 +33,5 @@ library:
   - src/lectures
   - src/report
   - src/exam
+  - src/learnyouhaskell
+  - src/holomyev
