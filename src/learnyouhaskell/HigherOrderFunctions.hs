@@ -147,6 +147,11 @@ last' = foldl1 (flip const)
 
 prop_last' (NonEmpty xs) = last xs == last' xs
 
+sqrtSums :: Int
+sqrtSums = length (takeWhile (< 1000) (scanl1 (+) (map sqrt [1..]))) + 1
+
+prop_sqrtSums = 131 == sqrtSums
+
 return []
 runTests :: IO Bool
 runTests = $quickCheckAll
