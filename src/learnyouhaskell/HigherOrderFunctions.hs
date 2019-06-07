@@ -148,9 +148,26 @@ last' = foldl1 (flip const)
 prop_last' (NonEmpty xs) = last xs == last' xs
 
 sqrtSums :: Int
-sqrtSums = length (takeWhile (< 1000) (scanl1 (+) (map sqrt [1..]))) + 1
+--sqrtSums = length (takeWhile (< 1000) (scanl1 (+) (map sqrt [1..]))) + 1
+sqrtSums = (+) 1 $ length $ takeWhile (< 1000) $ scanl1 (+) $ map sqrt [1..]
 
 prop_sqrtSums = 131 == sqrtSums
+
+mySqrtSum :: Double
+--mySqrtSum = sum (map sqrt [1..100])
+mySqrtSum = sum $ map sqrt [1..100]
+
+applyArg :: a -> (a -> b) -> b
+applyArg x = ($ x)
+
+applyFuncList :: (Integral a) => a -> [a]
+applyFuncList x = map ($ x) [(+10), (*7), (^2), (2^)]
+
+applyFunc :: (a -> b) -> a -> b
+applyFunc f = (f $)
+
+something :: [Int] -> [Int]
+something xs = filter even . map (+1) . zipWith (*) [1..] . take 200 . cycle $ xs
 
 return []
 runTests :: IO Bool
