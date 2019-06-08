@@ -26,8 +26,8 @@ buildAbbrev wordsInName
 
 -- Takes string list - 'first' names - and builds initials string
 buildInitialsString :: [String] -> String
-buildInitialsString fullName = concatMap ((: ".") . head) fullName
-
+--buildInitialsString fullName = concatMap ((: ".") . head) fullName
+buildInitialsString = foldr (\word acc -> head word : '.' : acc) []
 
 abbrevTestData =  ["Синицин", "Сергей Есенин", "Игорь Федорович Поддубный",
                   "Иоганн Хризостом Вольфганг Амадей Моцарт"]
